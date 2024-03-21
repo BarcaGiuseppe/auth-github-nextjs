@@ -45,7 +45,13 @@ export default async function Page(req: any) {
   }
   const data = await res.json();
   //console.log(data);
-  const { login } = data;
+  const { login, avatar_url } = data;
+  const keys = Object.keys(data);
+  console.log(keys);
 
-  return <main>Ciaoooo {login}</main>;
+  return (
+    <div className="container">
+      Ciaoooo <img alt="" src={avatar_url}></img> {login}
+    </div>
+  );
 }
